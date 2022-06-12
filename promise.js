@@ -5,8 +5,8 @@ const { promiseTheaterIXX, promiseTheaterVGC } = require("./external.js");
 const promiseOutput = async(emosi) => {
   try{
     const listFilm = await (await Promise.all([promiseTheaterIXX(), promiseTheaterVGC()])).flat()
-    emosi = listFilm.filter(item => item.hasil === emosi);
-    return emosi.length;
+    const emosiCounter = listFilm.filter(item => item.hasil === emosi);
+    return emosiCounter.length;
   }
   catch(rejectMessage){
     console.log(`Error in: ${rejectMessage}`);
